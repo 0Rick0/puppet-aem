@@ -60,28 +60,60 @@
     /<%= idx -%> {
       /type "<%= filter['type'] -%>"
       <%- if filter['method'] -%>
-      /method "<%= filter['method'] -%>"
+        <%- if filter['method_regex'] -%>
+        /method '<%= filter['method'] -%>'
+        <%- else -%>
+        /method "<%= filter['method'] -%>"
+        <%- end -%>
       <%- end -%>
       <%- if filter['url'] -%>
-      /url "<%= filter['url'] -%>"
+        <%- if filter['url_regex'] -%>
+        /url '<%= filter['url'] -%>'
+        <%- else -%>
+        /url "<%= filter['url'] -%>"
+        <%- end -%>
       <%- end -%>
       <%- if filter['query'] -%>
-      /query "<%= filter['query'] -%>"
+        <%- if filter['query_regex'] -%>
+        /query '<%= filter['query'] -%>'
+        <%- else -%>
+        /query "<%= filter['query'] -%>"
+        <%- end -%>
       <%- end -%>
       <%- if filter['protocol'] -%>
-      /protocol "<%= filter['protocol'] -%>"
+        <%- if filter['protocol_regex'] -%>
+        /protocol '<%= filter['protocol'] -%>'
+        <%- else -%>
+        /protocol "<%= filter['protocol'] -%>"
+        <%- end -%>
       <%- end -%>
       <%- if filter['path'] -%>
-      /path "<%= filter['path'] -%>"
+        <%- if filter['path_regex'] -%>
+        /path '<%= filter['path'] -%>'
+        <%- else -%>
+        /path "<%= filter['path'] -%>"
+        <%- end -%>
       <%- end -%>
       <%- if filter['selectors'] -%>
-      /selectors '<%= filter['selectors'] -%>'
+        <%- if filter['selectors_regex'] -%>
+        /selectors '<%= filter['selectors'] -%>'
+        <%- else -%>
+        /selectors "<%= filter['selectors'] -%>"
+        <%- end -%>
       <%- end -%>
       <%- if filter['extension'] -%>
-      /extension '<%= filter['extension'] -%>'
+        <%- if filter['extension_regex'] -%>
+        /extension '<%= filter['extension'] -%>'
+        <%- else -%>
+        /extension "<%= filter['extension'] -%>"
+        <%- end -%>
       <%- end -%>
       <%- if filter['suffix'] -%>
-      /suffix '<%= filter['suffix'] -%>'
+        <%- if filter['suffix_regex'] -%>
+        /suffix '<%= filter['suffix'] -%>'
+        <%- else -%>
+        /suffix "<%= filter['suffix'] -%>"
+        <%- end -%>
       <%- end -%>
     }
     <%- end -%>
