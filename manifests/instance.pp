@@ -39,10 +39,10 @@ define aem::instance (
       if $ip_address != 'localhost' and $ip_address != '*' {
         validate_ip_address($ip_address)
       }
-      validate_integer($parts[1], 0, 65535)
+      validate_integer($parts[1], 65535, 0)
     }
     else {
-      validate_integer($debug_port, 0, 65535)
+      validate_integer($debug_port, 65535, 0)
     }
   }
 
