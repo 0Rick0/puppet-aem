@@ -32,8 +32,18 @@ define aem::instance (
 
   validate_re($ensure, '^(present|absent)$', "${ensure} is not supported for ensure. Allowed values are 'present' and 'absent'.")
 
-  if $debug_port {
-    validate_integer($debug_port)
+  if $debug_port != '' {
+    if ':' in $debug_port {
+      $parts = split($debug_port, ':')
+      $ip_address = $parts[0]
+      if $ip_address != 'localhost' and $ip_address != '*' {
+        validate_ip_address($ip_address)
+      }
+      validate_integer($parts[1], 65535, 0)
+    }
+    else {
+      validate_integer($debug_port, 65535, 0)
+    }
   }
 
   if !$home {
