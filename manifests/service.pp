@@ -21,7 +21,7 @@ define aem::service (
   validate_absolute_path($home)
 
   case $::operatingsystem {
-    'CentOS', 'Fedora', 'RedHat' : {
+    'CentOS', 'Fedora', 'RedHat', 'OracleLinux' : {
 
       if versioncmp($::operatingsystemmajrelease, '7') >= 0 {
         $provider      = 'systemd'
